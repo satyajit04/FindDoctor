@@ -1,0 +1,20 @@
+{% extends 'hms/index.html' %}
+{% block title %}appointment failed{% endblock %}
+{% block body %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'apt/styleform.css' %}"/>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="alert alert-danger">
+                Appointment failed. The requested date and time is occupied. Please select available date and time.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

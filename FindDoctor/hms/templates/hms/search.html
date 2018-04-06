@@ -1,0 +1,31 @@
+{% extends 'hms/index.html' %}
+{% block title %}{{doctor.name}} details{% endblock %}
+{% block body %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            {% if doctors %}
+            {% for d in doctors %}
+                <div class="col-xs-offset-1 col-md-7">
+                    <div class="thumbnail">
+                        <div class="relative">
+                            <br>
+                            <a href="{% url 'hms:doctor_details' d.id %}">
+                                <img src="{{ d.dp.url }}" class="img-circle" width="400" height="400" style="border:10px solid #2d948b">
+                            </a><br>
+                            <a style="font-family:El Messiri;font-size:24px;color:#2d948b;" href="{% url 'hms:doctor_details' d.id %}">&nbsp; {{d.name}}</a>
+                            <h3 style="font-family:El Messiri; color:#2d948b;">{{d.hospital.hospital_name}}</h3>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

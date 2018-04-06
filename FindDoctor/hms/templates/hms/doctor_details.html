@@ -1,0 +1,51 @@
+{% extends 'hms/index.html' %}
+{% block title %}{{doctor.name}} details{% endblock %}
+{% block body %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'hms/back.css' %}"/>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-offset-1 col-md-10">
+                <div class="relative">
+                    <img src="{{ doctor.dp.url }}" class="img-circle" width="250" height="250" style="border:10px solid #2d948b">
+                    <br>
+                    <h2 style="font-family:El Messiri; color:#2d948b;">{{doctor.name}}</h2>
+                    <h3 style="font-family:El Messiri; color:#2d948b;">{{doctor.speciality}}</h3>
+                    <h3 style="font-family:El Messiri; color:#2d948b;">{{doctor.hospital.hospital_name}}</h3>
+                    <div class="alert alert-danger">Expert in treatment of {{doctor.health_issue}}</div>
+                    <a href="{% url 'apt:make_appointment' %}" class="btn btn-primary btn-sm" role="button">Make Appointment</a>
+                    <br>
+                    <br>
+                    <h3 style="font-family:El Messiri; color:black;">Current Appointments</h3>
+                    {% if appointments %}
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Doctor</th>
+                                    <th>Patient's Name</th>
+                                    <th>Date and Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for a in appointments %}
+                                <tr>
+                                    <td>{{ a.doctor.name }}</td>
+                                    <td>{{ a.patient_name }}</td>
+                                    <td>{{ a.date }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

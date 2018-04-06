@@ -1,0 +1,40 @@
+ @import url("//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+
+.navbar {
+    border-radius: 0;
+}
+
+.navbar-default {
+  background-color: #239f89;
+  border-color: #2d948b;
+}
+.navbar-default .navbar-brand {
+  font-family: 'Tangerine', cursive;
+  font-size: 30px;
+  color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #dbfffc;
+}
+.navbar-default .navbar-text {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #dbfffc;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #dbfffc;
+  background-color: #2d948b;
+}
+
+.panel-default > .panel-heading-custom {
+    background: #2d948b;
+    color: #ecf0f1;
+}

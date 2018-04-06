@@ -1,0 +1,32 @@
+{% extends 'hms/index.html' %}
+{% block title %}{{hospital.hospital_name}}{% endblock %}
+{% block body %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'hms/back.css' %}"/>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-offset-1 col-md-5">
+                <div class="relative">
+                    <img src="{{ hospital.image.url }}" width="550" height="550" style="border:10px solid #2d948b">
+                    <br>
+                    <br>
+                    <a style="font-family:El Messiri; font-size:34px; color:#2d948b;" href="">{{hospital.hospital_name}}</a>
+                    <h2 style="font-family:El Messiri; color:#2d948b;">{{hospital.address}}</h2><br>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h2 style="font-family:El Messiri; color:#2d948b;">Doctor's List</h2>
+                {% for i in hospital.doctor_set.all %}
+                    <li><a style="font-family:El Messiri;font-size:24px;color:#2d948b;" href="{% url 'hms:hospital_doctors' i.hospital.pk i.id %}">{{ i.name }}</a></li>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
